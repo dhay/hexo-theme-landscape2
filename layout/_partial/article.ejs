@@ -19,6 +19,11 @@
           </p>
         <% } %>
       <% } else { %>
+        <% if (post.featured_image) { %>
+          <div class="featured-image">
+            <img src="<%- post.featured_image %>" />
+          </div>
+        <% } %>
         <%- post.content %>
       <% } %>
     </div>
