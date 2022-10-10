@@ -18,6 +18,9 @@
 #header-outer
   height: 100%
   position: relative
+  display: flex
+  flex-direction: column
+  justify-content: space-between
 
 #header-inner
   position: relative
@@ -34,12 +37,11 @@
   z-index: -1
 
 #header-title
-  text-align: center
-  height: logo-size
-  position: absolute
-  top: 50%
-  left: 0
-  margin-top: logo-size * -0.5
+  height: 100%
+  text-align: left
+  display flex
+  flex-direction: column
+  justify-content: center
 
 $logo-text
   text-decoration: none

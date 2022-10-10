@@ -4,6 +4,7 @@ menu:
   Archives: /archives
 rss: /atom.xml
 banner: "images/banner.jpg"
+banner_height: 300px
 
 # Content
 excerpt_link: Read More
