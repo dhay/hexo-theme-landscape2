@@ -1,0 +1,36 @@
+<%
+var breakpoints = {
+  mobile: {
+    maxWidth: 479,
+    imageWidth: 440
+  },
+  default: {
+    imageWidth: 1200
+  }
+};
+
+var featuredImage = post.featured_image
+while (featuredImage[0] === '/') {
+  featuredImage = featuredImage.slice(1);
+}
+
+var baseUrl = config.theme_config.featured_image.url_template
+  .replace('{IMAGE_NAME}', featuredImage);
+
+var srcSet = Object.entries(breakpoints)
+  .map(([_, { imageWidth }]) =>
+    `${baseUrl.replace('{WIDTH}', imageWidth)} ${imageWidth}w`
+  )
+  .join(', ');
+
+var sizes = Object.entries(breakpoints)
+  .map(([_, { maxWidth, imageWidth }]) =>
+    maxWidth ? `(max-width: ${maxWidth}px) ${imageWidth}px` : `${imageWidth}px`
+  )
+  .join(', ');
+
+
+%>
+<div class="featured-image">
+  <img srcset="<%- srcSet %>" sizes="<%- sizes %>" />
+</div>

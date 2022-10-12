@@ -20,9 +20,7 @@
         <% } %>
       <% } else { %>
         <% if (post.featured_image) { %>
-          <div class="featured-image">
-            <img src="<%- post.featured_image %>" />
-          </div>
+          <%- partial('post/featured-image') %>
         <% } %>
         <%- post.content %>
       <% } %>
