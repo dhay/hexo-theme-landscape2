@@ -1,7 +1,7 @@
 # Header
-menu:
-  Home: /
-  Archives: /archives
+# menu:
+#   Home: /
+#   Archives: /archives
 rss: /atom.xml
 banner: "images/banner.jpg"
 banner_height: 300px

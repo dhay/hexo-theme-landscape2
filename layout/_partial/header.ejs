@@ -19,8 +19,23 @@
         <% } %>
       </nav>
       <nav id="sub-nav">
-        <% if (theme.rss){ %>
-          <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>"></a>
+        <%
+          var rss_url = config.rss || theme.rss
+          var facebook_url = config.facebook_url || theme.facebook_url;
+          var twitter_url = config.twitter_url || theme.twitter_url;
+          var linkedin_url = config.linkedin_url || theme.linkedin_url;
+        %>
+        <% if (rss_url){ %>
+          <a id="nav-rss-link" class="nav-icon" href="<%- url_for(rss_url) %>" title="<%= __('rss_feed') %>"></a>
+        <% } %>
+        <% if (facebook_url) { %>
+          <a id="nav-facebook-link" class="nav-icon" href="#" title="Facebook"></a>
+        <% } %>
+        <% if (twitter_url) { %>
+          <a id="nav-twitter-link" class="nav-icon" href="#" title="Twitter"></a>
+          <% } %>
+        <% if (linkedin_url) { %>
+          <a id="nav-linkedin-link" class="nav-icon" href="#" title="LinkedIn"></a>
         <% } %>
         <a id="nav-search-btn" class="nav-icon" title="<%= __('search') %>"></a>
       </nav>
