@@ -1,0 +1,13 @@
+<% var text_widget = theme.text_widgets[name] %>
+<div class="widget-wrap">
+  <h3 class="widget-title"><%- text_widget.title %></h3>
+  <div class="widget text-widget">
+    <% if (Array.isArray(text_widget.content)) { %>
+      <% text_widget.content.forEach((line) => { %>
+        <p><%- line %></p>
+      <% }) %>
+    <% } else { %>
+      <p><%- text_widget.content %></p>
+    <% } %>
+  </div>
+</div>
