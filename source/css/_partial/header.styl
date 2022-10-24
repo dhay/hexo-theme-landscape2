@@ -2,6 +2,9 @@
   height: banner-height
   position: relative
   border-bottom: 1px solid color-border
+  /* search bar lives outside the visible frame and slides in */
+  overflow: hidden
+
   &:before
     top: 0
     background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
@@ -139,10 +142,12 @@ $nav-link
   height: 30px
   right: -150px
   opacity: 0
-  transition: 0.2s ease-out
+  transition: visibility 0s, 0.2s ease-out
+  visibility: hidden
   &.on
     opacity: 1
     right: 0
+    visibility: visible
   @media mq-mobile
     width: 100%
     right: -100%
