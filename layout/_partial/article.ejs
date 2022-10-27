@@ -2,7 +2,7 @@
     <div class="article-meta">
       <% if (post.layout === 'post') { %>
         <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
-      <%- partial('post/category') %>
+        <%- partial('post/category') %>
       <% } %>
     </div>
   <div class="article-inner">
@@ -13,7 +13,10 @@
       </header>
     <% } %>
     <div class="e-content article-entry" itemprop="articleBody">
-      <% if (post.excerpt && index){ %>
+      <% if (post.featured_image) { %>
+        <%- partial('post/featured-image', {size: 'large'}) %>
+      <% } %>
+    <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
         <% if (theme.excerpt_link){ %>
           <p class="article-more-link">
@@ -21,9 +24,6 @@
           </p>
         <% } %>
       <% } else { %>
-        <% if (post.featured_image) { %>
-          <%- partial('post/featured-image') %>
-        <% } %>
         <%- post.content %>
       <% } %>
     </div>

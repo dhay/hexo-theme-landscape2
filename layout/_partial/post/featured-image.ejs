@@ -1,13 +1,31 @@
 <%
-var breakpoints = {
-  mobile: {
-    maxWidth: 479,
-    imageWidth: 440
+var sizeBreakpoints = {
+  large: {
+    mobile: {
+      maxWidth: 479,
+      imageWidth: 440
+    },
+    default: {
+      imageWidth: 1200
+    }
   },
-  default: {
-    imageWidth: 1200
+  small: {
+    mobile: {
+      maxWidth: 479,
+      imageWidth: 440
+    },
+    default: {
+      imageWidth: 600
+    }
+
   }
-};
+}
+
+if (!size) {
+  size = 'large';
+}
+
+var breakpoints = sizeBreakpoints[size];
 
 var featuredImage = post.featured_image
 while (featuredImage[0] === '/') {
