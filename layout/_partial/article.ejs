@@ -7,25 +7,18 @@
     </div>
   <div class="article-inner">
     <%- partial('post/gallery') %>
-    <% if (post.link || post.title){ %>
+    <% if (post.title){ %>
       <header class="article-header">
-        <%- partial('post/title', {class_name: 'p-name article-title'}) %>
+        <h1 class="p-name article-title" itemprop="headline name">
+          <%= post.title %>
+        </h1>
       </header>
     <% } %>
     <div class="e-content article-entry" itemprop="articleBody">
       <% if (post.featured_image) { %>
         <%- partial('post/featured-image', {size: 'large'}) %>
       <% } %>
-    <% if (post.excerpt && index){ %>
-        <%- post.excerpt %>
-        <% if (theme.excerpt_link){ %>
-          <p class="article-more-link">
-            <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
-          </p>
-        <% } %>
-      <% } else { %>
-        <%- post.content %>
-      <% } %>
+      <%- post.content %>
     </div>
     <footer class="article-footer">
       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>" class="article-share-link"><%= __('share') %></a>
@@ -41,20 +34,18 @@
       <%- partial('post/tag') %>
     </footer>
   </div>
-  <% if (!index){ %>
-    <%- partial('post/nav') %>
-  <% } %>
+  <%- partial('post/nav') %>
 </article>
 
-<% if (!index && post.comments && config.disqus_shortname && post.layout === 'post'){ %>
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-<% } %>
-<% if (!index && post.comments && theme.valine.enable && theme.valine.appId && theme.valine.appKey && post.layout === 'post'){ %>
-  <section id="comments" class="vcomment">
-
+<% if (post.comments && post.layout === 'post') { %>
+  <% if (config.disqus_shortname){ %>
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
   </section>
+  <% } else if (theme.valine.enable && theme.valine.appId && theme.valine.appKey) { %>
+    <section id="comments" class="vcomment">
+    </section>
+  <% } %>
 <% } %>
