@@ -1,10 +1,14 @@
-<% page.posts.each(function(post){ %>
-  <%-
-    partial('_partial/post-card', {
-      post: post,
-      show_excerpt: true,
-      show_featured_image: true
-    })
-  %>
-<% }) %>
-<%- partial('_partial/pagination') %>
+<div class="home">
+  <div class="posts">
+    <% page.posts.each(function(post){ %>
+      <%-
+        partial('_partial/post-card', {
+          post: post,
+          show_excerpt: true,
+          show_featured_image: true
+        })
+      %>
+    <% }) %>
+  </div>
+  <%- partial('_partial/pagination') %>
+</div>

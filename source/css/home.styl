@@ -1,0 +1,11 @@
+// @import "_variables"
+// @import "_util/mixin"
+
+.home .posts
+    @media mq-normal
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: gutter-width
+
+        .article
+            margin: 0 0 gutter-width 0
