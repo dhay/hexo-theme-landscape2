@@ -1,9 +1,7 @@
-.article
-  margin: 0 0 block-margin 0
-
 .article-inner
   @extend $block
   overflow: hidden
+  padding: article-padding
 
 .article-meta
   clearfix()
@@ -25,9 +23,6 @@
   @extend $block-caption
   margin: 0 12px 1em
 
-.article-header
-  padding: article-padding article-padding 0
-
 .article-title
   text-decoration: none
   font-size: 2em
@@ -42,7 +37,6 @@
   @extend $base-style
   clearfix()
   color: color-default
-  padding: 0 article-padding
   p, table
     line-height: line-height
     margin: line-height 0
@@ -143,23 +137,23 @@
   line-height: line-height
   border-top: 1px solid color-border
   padding-top: line-height
-  margin: 0 article-padding article-padding
+  display: flex
+  flex-flow: row nowrap
+  gap: 8px
   a
     color: color-grey
     text-decoration: none
     &:hover
       color: color-default
 
-.article-tag-list-item
-  float: left
-  margin-right: 10px
+.article-tags
+  flex: 1 1 auto
 
 .article-tag-list-link
   &:before
     content: "#"
 
 .article-comment-link
-  float: right
   &:before
     content: "\f075"
     font-family: font-icon
@@ -167,8 +161,6 @@
 
 .article-share-link
   cursor: pointer
-  float: right
-  margin-left: 20px
   &:before
     content: "\f064"
     font-family: font-icon

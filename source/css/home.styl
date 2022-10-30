@@ -8,4 +8,14 @@
         gap: gutter-width
 
         .article
-            margin: 0 0 gutter-width 0
+            display: flex
+            flex-flow: column nowrap
+
+
+        .article-inner
+            display: flex
+            flex-flow: column nowrap
+            flex: 1 1 auto
+
+            .article-entry
+                flex: 1 0 auto

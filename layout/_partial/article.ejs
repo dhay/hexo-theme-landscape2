@@ -21,17 +21,18 @@
       <%- post.content %>
     </div>
     <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>" class="article-share-link"><%= __('share') %></a>
+      <div class="article-tags">
+        <%- partial('post/tag') %>
+      </div>
       <% if (post.comments && config.disqus_shortname && post.layout === 'post'){ %>
         <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
-      <% } %>
-      <% if (post.comments && theme.valine.enable && theme.valine.appId && theme.valine.appKey && post.layout === 'post'){ %>
+      <% } else if (post.comments && theme.valine.enable && theme.valine.appId && theme.valine.appKey && post.layout === 'post'){ %>
         <a href="<%- url_for(post.path) %>#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="<%- url_for(post.path) %>" itemprop="commentCount"></span>
           <%= __('comment') %>
         </a>
       <% } %>
-      <%- partial('post/tag') %>
+      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" data-title="<%= post.title %>" class="article-share-link"><%= __('share') %></a>
     </footer>
   </div>
   <%- partial('post/nav') %>
