@@ -79,8 +79,23 @@
     padding: 10px 0
   blockquote
     font-family: font-serif
-    margin: line-height 20px
-    text-align: center
+    padding: 1.2em 20px 1.2em 48px
+    border-left: 10px solid color-grey
+    quotes: "\201C""\201D""\2018""\2019";
+    position: relative
+    background-color: color-border
+    &:before
+      color: color-grey
+      content: "\201C"
+      font-size: 4em
+      vertical-align: -0.4em
+      position: absolute
+      left: 10px
+      top: 0.1em
+    p:first-child
+      margin-top: 0
+    p:last-child
+      margin-bottom: 0
     footer
       font-size: font-size
       margin: line-height 0
