@@ -47,8 +47,14 @@ var sizes = Object.entries(breakpoints)
   )
   .join(', ');
 
-
+var defaultWidth = breakpoints.default.imageWidth;
+var defaultImg = `${baseUrl.replace('{WIDTH}', defaultWidth)}`;
 %>
 <div class="featured-image">
-  <img srcset="<%- srcSet %>" sizes="<%- sizes %>" />
+  <img
+    srcset="<%- srcSet %>"
+    sizes="<%- sizes %>"
+    src="<%- defaultImg %>"
+    width="<%- defaultWidth %>"
+  />
 </div>
