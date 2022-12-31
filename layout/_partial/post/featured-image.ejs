@@ -49,6 +49,9 @@ var sizes = Object.entries(breakpoints)
 
 var defaultWidth = breakpoints.default.imageWidth;
 var defaultImg = `${baseUrl.replace('{WIDTH}', defaultWidth)}`;
+
+var altText = post.featured_image_alt || featuredImage.slice(0, featuredImage.lastIndexOf('.'));
+
 %>
 <div class="featured-image">
   <img
@@ -56,5 +59,6 @@ var defaultImg = `${baseUrl.replace('{WIDTH}', defaultWidth)}`;
     sizes="<%- sizes %>"
     src="<%- defaultImg %>"
     width="<%- defaultWidth %>"
+    alt="<%- altText %> "
   />
 </div>
